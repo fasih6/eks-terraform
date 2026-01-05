@@ -2,27 +2,27 @@
 
 ```mermaid
 flowchart TB
-    AWS[AWS Cloud<br/>Region: ap-south-1]
+    AWS["AWS Cloud (ap-south-1)"]
+    VPC["VPC 10.0.0.0/16"]
 
-    VPC[VPC<br/>10.0.0.0/16]
-
-    subgraph Subnets["Public Subnets"]
-        S1[Public Subnet<br/>ap-south-1a]
-        S2[Public Subnet<br/>ap-south-1b]
+    subgraph SUBNETS["Public Subnets"]
+        S1["Subnet ap-south-1a"]
+        S2["Subnet ap-south-1b"]
     end
 
-    subgraph Nodes["EKS Worker Nodes"]
-        N1[EC2 Node<br/>t2.medium<br/>Pods]
-        N2[EC2 Node<br/>t2.medium<br/>Pods]
+    subgraph NODES["EKS Worker Nodes"]
+        N1["EC2 Node t2.medium"]
+        N2["EC2 Node t2.medium"]
     end
 
-    CP[EKS Control Plane<br/>(Managed by AWS)]
-    IAM[IAM Roles<br/>Cluster & Node Group]
-    EBS[EBS CSI Driver<br/>Persistent Storage]
-    IGW[Internet Gateway]
+    CP["EKS Control Plane"]
+    IAM["IAM Roles"]
+    EBS["EBS CSI Driver"]
+    IGW["Internet Gateway"]
 
     AWS --> VPC
-    VPC --> Subnets
+    VPC --> SUBNETS
+
     S1 --> N1
     S2 --> N2
 
@@ -35,10 +35,6 @@ flowchart TB
     N1 --> IGW
     N2 --> IGW
 ```
-
-
-
-
 
 
 ## Notes 
