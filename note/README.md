@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     A[START]
 
@@ -68,3 +69,4 @@ flowchart TD
 
     P --> R[END]
     Q --> R[END]
+```
